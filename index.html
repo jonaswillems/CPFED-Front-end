@@ -14,7 +14,7 @@
     <div style="border: 5px solid black; width: 1100px;" class="text-center mx-auto">
 
 
-    <div x-data="{valueList: [], 'isLoading': true}" x-init="fetch('http://127.0.0.1:8000/get/drankjes/')
+    <div x-data="{valueList: [], 'isLoading': true}" x-init="fetch('https://useritem-api-service-jonaswillems.cloud.okteto.net/get/drankjes/')
     .then(response => response.json())
     .then(response => { valueList = response; isLoading = false;})">
       <table x-show="!isLoading" class="table w-50 text-center align-content-center mx-auto">
@@ -40,7 +40,7 @@
 
 
     <h3 class="text-center mt-5">Goedkoopste drankje:</h3>
-    <div x-data="{valueList2: [], 'isLoading': true}" x-init="fetch('http://127.0.0.1:8000/get/drankje/3')
+    <div x-data="{valueList2: [], 'isLoading': true}" x-init="fetch('https://useritem-api-service-jonaswillems.cloud.okteto.net/get/drankje/3')
     .then(response => response.json())
     .then(response => { valueList2 = response; isLoading = false;})">
       <table x-show="!isLoading" class="table text-center">
@@ -57,7 +57,7 @@
             postdrankje: null,
             postprijs: null,
             async xtoevoegen() {
-                this.responsedata = await (await fetch('http://127.0.0.1:8000/post/drankje/', 
+                this.responsedata = await (await fetch('https://useritem-api-service-jonaswillems.cloud.okteto.net/post/drankje/', 
                 {
                     method: 'POST',
                     body: JSON.stringify({
